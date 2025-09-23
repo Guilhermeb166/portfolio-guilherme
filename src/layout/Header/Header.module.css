@@ -1,0 +1,9 @@
+.header{
+    position: fixed;
+    z-index: 999;
+    height: 100px;
+    width: 100%;
+}
+/*.Header.scrolled{
+    background-color: var(--color-azulEscuro);
+}*/
