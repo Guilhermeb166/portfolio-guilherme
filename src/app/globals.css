@@ -9,10 +9,11 @@
 :root{
   --color-azulEscuro:#0D1321;
   --color-azulEscuroClaro:#121828;
-  --color-black:#0b0a0f;
+  --color-black:#14131b;
   --color-cyan:rgb(1, 248, 255);
   --color-verde: #0F9080;
 }
 body{
-  background-color: var(--color-black);
+  background-color: var(--color-azulEscuro);
+  height: 100vh;
 }

@@ -28,8 +28,8 @@ export default function Introduction() {
     
 
       <div className={styles.buttonGroup}>
-        <button className={styles.primaryButton}>Explorar meu Trabalho → </button>
-        <button className={styles.secondaryButton}>⬇ Download CV</button>
+        <button className={styles.primaryButton}>Explorar meu Trabalho</button>
+        <button className={styles.secondaryButton}>Download CV</button>
       </div>
 
       <div className={styles.socialLinks}>
@@ -55,7 +55,13 @@ export default function Introduction() {
           </svg>
         </a>
       </div>
-      <div className={styles.discoverMore}>
+      <div className={styles.discoverMore}
+        onClick={()=> {
+          document.getElementById("aboutMe")?.scrollIntoView({
+            behavior: "smooth"
+          })
+        }}
+      >
         Descubra Mais
         <span className={styles.arrow}>⌄</span>
       </div>

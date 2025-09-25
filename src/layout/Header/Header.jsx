@@ -1,11 +1,12 @@
 'use client'
 import styles from './Header.module.css'
 import Image from "next/image"
+import Links from './Links/Links'
 
 export default function Header() {
   return (
     <header className={styles.header}>
-        <div className={styles.logoDiv}>
+        {/*<div className={styles.logoDiv}>
             <Image
                 src={'/img/gb.png'}
                 className={styles.logo}
@@ -13,7 +14,8 @@ export default function Header() {
                 height={100}
                 priority
             />
-        </div>
+        </div>*/}
+        <Links/>
     </header>
   )
 }
