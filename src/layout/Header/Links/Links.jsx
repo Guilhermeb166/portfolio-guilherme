@@ -2,9 +2,11 @@
 import Link from 'next/link'
 import styles from './Links.module.css'
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 export default function Links() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false)
 
   const links = [
     { href: '/', label: 'Home' },
@@ -14,8 +16,21 @@ export default function Links() {
     { href: '/contato', label: 'Contato' },
   ];
 
+  useEffect (()=>{
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return ()=> window.removeEventListener("scroll", handleScroll)
+  })
+
   return (
-     <nav className={styles.linksWrapper}>
+     <nav className={`${styles.linksWrapper} ${scrolled ? styles.scrolled : ''}`}>
       <ul className={styles.links}>
         {links.map(link => {
           const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== '/');

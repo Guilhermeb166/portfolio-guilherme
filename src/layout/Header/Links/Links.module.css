@@ -19,12 +19,18 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   padding: 5px 8px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(18px);
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
+/*.scrolled{
+  background-color: var(--color-black);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}*/
 
 .links::before {
   content: "";

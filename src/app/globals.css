@@ -13,7 +13,12 @@
   --color-cyan:rgb(1, 248, 255);
   --color-verde: #0F9080;
 }
+
 body{
-  background-color: var(--color-azulEscuro);
+  background-color: #030303;
   height: 100vh;
+}
+
+html, body {
+    scroll-behavior: smooth;
 }
