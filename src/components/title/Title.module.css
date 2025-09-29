@@ -1,0 +1,45 @@
+.titleControl {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 40px 0 80px; 
+}
+
+.title {
+    text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 100%;
+  color: #ffffff; 
+  text-transform: capitalize;
+  z-index: 2; 
+  position: relative; 
+  padding-bottom: 8px; 
+}
+
+.title::before {
+  content: attr(data-text); 
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem; 
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.1); 
+  z-index: 1; 
+  text-transform: uppercase;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 10%; 
+  height: 4px; 
+  background-color: var(--color-cyan); 
+  border-radius: 2px;
+}

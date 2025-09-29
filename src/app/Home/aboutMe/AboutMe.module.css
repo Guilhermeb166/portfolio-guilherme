@@ -1,4 +1,23 @@
 .aboutMe{
     height: 100vh;
     color: #fff;
+    padding-inline: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+.description{
+    text-align: justify;
+    max-width:800px;
+    line-height: 25px;
+
+    & > p{
+        text-align:start;
+        height: auto;
+        font-size: 1.2rem;
+
+        & > strong {
+            color: var(--color-cyan);
+        }
+    }
 }
