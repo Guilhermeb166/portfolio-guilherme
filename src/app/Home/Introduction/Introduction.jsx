@@ -5,6 +5,7 @@ import { FaReact, FaPython, FaGitAlt, FaCode, FaDatabase, FaCss3, FaNodeJs } fro
 import { GrGraphQl,  GrMysql } from "react-icons/gr";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiTypescript, SiVite, SiNextdotjs, SiOracle  } from "react-icons/si";
+import Image3d from './image3d/Image3d';
 export default function Introduction() {
 
   const fadeUp = {
@@ -19,6 +20,7 @@ export default function Introduction() {
 
   return (
     <section className={styles.introduction}>
+    <div className={styles.introText}>
       {/*<div className={`${styles.floatingIcon} ${styles.react}`}><FaReact /></div>
       <div className={`${styles.floatingIcon} ${styles.python}`}><FaPython /></div>
       <div className={`${styles.floatingIcon} ${styles.git}`}><FaGitAlt /></div>
@@ -100,6 +102,9 @@ export default function Introduction() {
         Descubra Mais
         <span className={styles.arrow}>⌄</span>
       </motion.div>
+      
+    </div>
+    <div className={styles.div3d}><Image3d/></div>
     </section>
   )
 }

@@ -1,12 +1,10 @@
 .introduction {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(135deg, #0d0d1d 0%, #000008 50%, #0d0d1d 100%);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  justify-content: space-around;
   overflow: hidden;
 
   &::after{
@@ -21,7 +19,15 @@
     z-index: 0; 
   }
 }
-
+.introText{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 /*
 .floatingIcon {
   position: absolute;
@@ -109,7 +115,7 @@
 .titlePart1 {
   color: #ffffff;
   display: block;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
 }
 
 .titlePart2 {
@@ -118,7 +124,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: block;
-  font-size: 1.9rem;
+  font-size: 1.6rem;
 }
 .buttonGroup {
   position: relative;
@@ -230,4 +236,9 @@
   60% {
     transform: translateY(-3px);
   }
+}
+
+.div3d{
+  height: 100%;
+  width: 50%;
 }
