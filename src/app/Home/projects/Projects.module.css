@@ -1,90 +1,67 @@
+/* Container principal da seção */
 .projectsSection {
   position: relative;
-  height: calc(100vh * 3); /* 4 projetos = 400vh */
+  padding: 5rem 2rem; /* Espaçamento geral */
+  
 }
 
-.projectsContainer {
-  position: sticky; /* 🔑 faz a seção "travar" */
-  top: 0;
-  height: 100vh; /* sempre ocupa a viewport */
+/* Layout de duas colunas */
+.projectsLayout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+  gap: 4rem; /* Espaço entre as colunas */
 }
 
-/* Left Column - Images that change */
-.leftColumn {
-  position: sticky;
-  top: 20vh; /* distancia do topo da tela */
-  height: 60vh;
+/* --- Coluna da Esquerda (Lista de Projetos que Rola) --- */
+.projectsList {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10rem; /* Grande espaço vertical entre os projetos */
 }
 
-.imageScrollContainer {
-  position: relative;
+.projectCard {
   width: 100%;
-  height: 100%;
+  opacity: 0.5; /* Projetos não ativos ficam semi-transparentes */
+  transition: opacity 0.4s ease;
+}
+
+.projectCard.active {
+  opacity: 1; /* Projeto ativo fica totalmente visível */
 }
 
 .projectImageWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
+  height: auto; /* Altura se ajusta à imagem */
+  aspect-ratio: 16 / 10; /* Proporção da imagem (mais horizontal) */
+  border-radius: 16px;
   overflow: hidden;
-  background-color: var(--color-azulEscuroClaro);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  opacity: 0; /* Padrão: Imagem inativa oculta */
-  transform: scale(0.95); /* Padrão: Imagem inativa menor */
-  pointer-events: none;
-}
-
-.activeImage {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-  box-shadow: 0 0 0 4px var(--color-cyan), 0 20px 40px rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  margin-bottom: 1.5rem; /* Espaço entre a imagem e o título do card */
 }
 
 .projectImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
 }
 
-/* Right Column - Sticky Details */
-.rightColumn, .stickyDetailsWrapper {
-  position: sticky;
-  top: 20vh;
+/* --- Coluna da Direita (Detalhes Fixos) --- */
+.stickyColumn {
+  position: relative;
+  height: 100%;
 }
 
 .stickyDetailsWrapper {
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: sticky;
+  top: 15vh; /* Posição "presa" a 15% do topo da viewport */
   padding: 2rem;
   background-color: var(--color-azulEscuroClaro);
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  transition: opacity 0.6s ease, transform 0.6s ease, z-index 0.1s ease;
 }
 
+/* Estilos para o conteúdo dos detalhes (título, descrição, etc.) */
 .projectDetailContent {
   width: 100%;
   text-align: left;
@@ -93,14 +70,8 @@
 .projectTitle {
   font-size: 2.2rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--color-cyan);
-}
-
-.projectType {
-  font-size: 1rem;
-  color: #b0b0b0;
-  margin-bottom: 1.5rem;
 }
 
 .projectDescription {
@@ -108,31 +79,6 @@
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #e0e0e0;
-}
-
-.projectFeatures {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.projectFeatures li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  font-size: 0.95rem;
-  color: #c0c0c0;
-}
-
-.projectFeatures li::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-verde);
-  margin-right: 1rem;
-  flex-shrink: 0;
 }
 
 .projectTechnologies {
