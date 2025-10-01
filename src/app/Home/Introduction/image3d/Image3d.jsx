@@ -53,6 +53,16 @@ function Model({ open, hinge, ...props }) {
 export default function Image3d() {
   const [open, setOpen] = useState(false)
   const props = useSpring({ open: Number(open) })
+
+  // assim que o componente montar, dispara a abertura
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setOpen(true)
+    }, 1500);
+    return () => clearTimeout(timer)
+  }, [])
+
+
   return (
     <web.main style={{ background: props.open.to([0, 1], ['transparent']), height:'100%' }}>
       <web.h1 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 100}px,0)`) }}>click</web.h1>

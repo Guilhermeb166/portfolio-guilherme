@@ -1,0 +1,33 @@
+.servicesWrapper{
+    display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 700px;
+  gap: 1.5rem;
+}
+.serviceItem {
+  background: linear-gradient(135deg, rgba(15, 19, 29, 0.8), rgba(0, 0, 0, 0.6));
+  border: 1px solid rgba(255, 252, 252, 0.1);
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.75rem;
+  height: 150px;
+  width: 300px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.serviceItem:hover {
+  box-shadow: 0px 0px 4px 1px var(--color-cyan);
+  transform: translateY(-5px);
+}
+
+.serviceIcon {
+  font-size: 1.2rem;
+  color: var(--color-cyan);
+  transition: color 0.3s ease;
+}

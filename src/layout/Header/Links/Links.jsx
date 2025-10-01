@@ -10,7 +10,7 @@ export default function Links() {
 
   const links = [
     { href: '/', label: 'Home' },
-    { href: '/sobre', label: 'Sobre Mim' },
+    { href: '#aboutMe', label: 'Sobre Mim' },
     { href: '/projetos', label: 'Projetos' },
     { href: '/skills', label: 'Skills' },
     { href: '/contato', label: 'Contato' },

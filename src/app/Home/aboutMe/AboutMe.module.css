@@ -3,16 +3,56 @@
     color: #fff;
     padding-inline: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: start;
+    overflow: hidden;
+    position: relative;
     
+    &>div{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+.aboutMe::before,
+.aboutMe::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: 0;
+}
+
+.aboutMe::before {
+  width: 300px;
+  height:300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  top: 280px;
+  left: 50px;
+}
+
+.aboutMe::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  bottom: -60px;
+  right: -100px;
 }
 .description{
+    z-index: 1;
+    border-radius: 9px;
+    padding: 0.8rem 1.5rem;
     text-align: justify;
-    max-width:800px;
-    line-height: 25px;
+    max-width:600px;
+    line-height: 22px;
+    letter-spacing: .5px;
+    backdrop-filter: blur(12px);
 
     & > p{
         text-align:start;
+        margin-bottom: 15px;
         height: auto;
         font-size: 1.2rem;
 

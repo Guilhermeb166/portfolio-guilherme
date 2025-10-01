@@ -1,10 +1,6 @@
 'use client'
 import styles from './Introduction.module.css'
 import { motion } from 'framer-motion'
-import { FaReact, FaPython, FaGitAlt, FaCode, FaDatabase, FaCss3, FaNodeJs } from "react-icons/fa6";
-import { GrGraphQl,  GrMysql } from "react-icons/gr";
-import { IoLogoJavascript } from "react-icons/io5";
-import { SiTypescript, SiVite, SiNextdotjs, SiOracle  } from "react-icons/si";
 import Image3d from './image3d/Image3d';
 export default function Introduction() {
 
@@ -21,19 +17,7 @@ export default function Introduction() {
   return (
     <section className={styles.introduction}>
     <div className={styles.introText}>
-      {/*<div className={`${styles.floatingIcon} ${styles.react}`}><FaReact /></div>
-      <div className={`${styles.floatingIcon} ${styles.python}`}><FaPython /></div>
-      <div className={`${styles.floatingIcon} ${styles.git}`}><FaGitAlt /></div>
-      <div className={`${styles.floatingIcon} ${styles.code}`}><FaCode /></div>
-      <div className={`${styles.floatingIcon} ${styles.database}`}><FaDatabase /></div>
-      <div className={`${styles.floatingIcon} ${styles.css}`}><FaCss3 /></div>
-      <div className={`${styles.floatingIcon} ${styles.node}`}><FaNodeJs /></div>
-      <div className={`${styles.floatingIcon} ${styles.graphql}`}><GrGraphQl /></div>
-      <div className={`${styles.floatingIcon} ${styles.ts}`}><SiTypescript /></div>
-      <div className={`${styles.floatingIcon} ${styles.next}`}><SiNextdotjs /></div>
-      <div className={`${styles.floatingIcon} ${styles.mysql}`}><GrMysql /></div>
-      <div className={`${styles.floatingIcon} ${styles.oracle}`}><SiOracle /></div>
-      <div className={`${styles.floatingIcon} ${styles.js}`}><IoLogoJavascript /></div>*/}
+
 
       <motion.h1 
         className={styles.mainTitle}
