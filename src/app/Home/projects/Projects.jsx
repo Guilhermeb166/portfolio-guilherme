@@ -121,6 +121,8 @@ export default function Projects() {
               className={`${styles.projectCard} ${index === activeProjectIndex ? styles.active : ''}`}
             >
               <div className={styles.projectImageWrapper}>
+                <div className={styles.imageGlow}></div>
+                <h4 className={styles.projectCardTitle}>{project.title}</h4>
                 <img src={project.image} alt={project.title} className={styles.projectImage} />
               </div>
               {/* Você pode adicionar um título ou breve descrição aqui se quiser */}
