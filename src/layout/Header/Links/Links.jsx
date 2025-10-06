@@ -11,9 +11,9 @@ export default function Links() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '#aboutMe', label: 'Sobre Mim' },
-    { href: '/projetos', label: 'Projetos' },
-    { href: '/skills', label: 'Skills' },
-    { href: '/contato', label: 'Contato' },
+    { href: '#Projects', label: 'Projetos' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#contact', label: 'Contato' },
   ];
 
   useEffect (()=>{

@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className={styles.Home}>
       <Introduction/>
-      <Title text='Projects'  id='Projects'/>
-      <Projects/>
       <AboutMe/>
+      <Title text='Projects' id='Projects'/>
+      <Projects/>
       <Skills/>
     </div>
   );

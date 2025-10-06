@@ -1,22 +1,42 @@
-
 .projectsSection {
   position: relative;
   padding: 5rem 2rem; 
 }
+.projectsSection::before,
+.projectsSection::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: 0;
+}
 
+.projectsSection::before {
+  width: 300px;
+  height:300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  top: 380px;
+  left: 50px;
+}
+
+.projectsSection::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  bottom: 100px;
+  right: 500px;
+}
 .projectsLayout {
   display: grid;
   grid-template-columns: 1fr 1fr; 
   gap: 4rem; 
 }
-
-
 .projectsList {
   display: flex;
   flex-direction: column;
   gap: 5rem; 
 }
-
 .projectCard {
   background-color: var(--color-azulEscuroClaro);
   display: flex;
@@ -26,7 +46,8 @@
   border-radius: 20px;
   border: 1px solid #5a5a5a;
   z-index: 1;
-  opacity: 0.5; 
+  opacity: 0.5;
+  height: 441px;
   transition: opacity 0.4s ease;
 }
 .projectCard.active {
@@ -75,44 +96,38 @@
   position: relative;
   height: 100%;
 }
-
 .stickyDetailsWrapper {
   position: sticky;
   top: 15vh; 
-  height: 500px;
+  z-index: 5;
+  height: 441px;
   padding: 2rem;
   background-color: var(--color-azulEscuroClaro);
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
 }
-
-
 .projectDetailContent {
   width: 100%;
   text-align: left;
 }
-
 .projectTitle {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
   color: var(--color-cyan);
 }
-
 .projectDescription {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #e0e0e0;
 }
-
 .projectTechnologies {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
-
 .techItem {
   display: flex;
   align-items: center;
@@ -125,12 +140,10 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
-
 .techItem:hover {
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
-
 .techItem svg {
   font-size: 1.2rem;
 }

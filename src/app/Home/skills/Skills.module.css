@@ -1,9 +1,34 @@
 .skillsSection {
   padding: 80px 20px;
   max-width: 1200px;
+  position: relative;
   margin: 0 auto;
 }
+.skillsSection::before,
+.skillsSection::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: 0;
+}
 
+.skillsSection::before {
+  width: 300px;
+  height:300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  top: 280px;
+  left: -250px;
+}
+
+.skillsSection::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  bottom: -60px;
+  right: -300px;
+}
 .categoryButtons {
   display: flex;
   flex-wrap: wrap;
@@ -54,6 +79,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
   justify-content: center;
   gap: 16px;
   transition: all 0.3s ease;
@@ -70,6 +96,7 @@
 
 .skillIcon {
   font-size: 2rem;
+  z-index: 5;
   height: 40px;
   transition: transform 0.3s ease;
 }
