@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/layout/Header/Header";
 import SmoothScrollProvider from "@/components/utils/SmoothScroll";
+import { ActiveSectionContextProvider } from "@/components/utils/Context/ActiveSectionContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +25,10 @@ export default function RootLayout({ children }) {
     <html lang="pt-br">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SmoothScrollProvider>
-          <Header/>
-          {children}
+          <ActiveSectionContextProvider>
+            <Header />
+            {children}
+          </ActiveSectionContextProvider>
         </SmoothScrollProvider>
       </body>
     </html>

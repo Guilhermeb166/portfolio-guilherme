@@ -51,8 +51,8 @@ export default function Skills() {
   const filteredSkills = activeCategory === 'All' ? skills : skills.filter(skill => skill.category === activeCategory)
 
   return (
-    <section className={styles.skillsSection} >
-        <Title text={"Skills"} id="skills"/>
+    <section className={styles.skillsSection} id="skills">
+        <Title text={"Skills"} />
 
         <div className={styles.categoryButtons}>
           {categories.map((category)=>(

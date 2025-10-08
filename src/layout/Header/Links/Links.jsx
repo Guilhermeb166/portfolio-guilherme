@@ -1,17 +1,17 @@
 'use client'
 import Link from 'next/link'
 import styles from './Links.module.css'
-import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useActiveSection } from '@/components/utils/Context/ActiveSectionContext';
 export default function Links() {
-  const pathname = usePathname();
+  const {activeSection} = useActiveSection()
   const [scrolled, setScrolled] = useState(false)
 
   const links = [
-    { href: '/', label: 'Home' },
+    { href: '#home', label: 'Home' },
     { href: '#aboutMe', label: 'Sobre Mim' },
-    { href: '#Projects', label: 'Projetos' },
+    { href: '#projects', label: 'Projetos' },
     { href: '#skills', label: 'Skills' },
     { href: '#contact', label: 'Contato' },
   ];
@@ -29,14 +29,14 @@ export default function Links() {
     return ()=> window.removeEventListener("scroll", handleScroll)
   })
 
+
   return (
-     <nav className={`${styles.linksWrapper} ${scrolled ? styles.scrolled : ''}`}>
+    <nav className={`${styles.linksWrapper} ${scrolled ? styles.scrolled : ''}`}>
       <ul className={styles.links}>
         {links.map(link => {
-          const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== '/');
+          const isActive = activeSection === link.href.replace('#', '');
           return (
             <li key={link.href} className={styles.linkWrapper}>
-              {/* Indicador apenas no link ativo */}
               {isActive && (
                 <motion.div
                   layoutId="links-background"
@@ -55,5 +55,5 @@ export default function Links() {
         })}
       </ul>
     </nav>
-  )
+  );
 }

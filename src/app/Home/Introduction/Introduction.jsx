@@ -15,7 +15,7 @@ export default function Introduction() {
   }
 
   return (
-    <section className={styles.introduction}>
+    <section className={styles.introduction} id="home">
     <div className={styles.introText}>
 
 

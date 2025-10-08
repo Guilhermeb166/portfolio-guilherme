@@ -7,8 +7,8 @@ export default function AboutMe() {
   return (
 
       
-      <section className={styles.aboutMe}>
-        <Title text={'Sobre Mim'} id="aboutMe"/>
+      <section className={styles.aboutMe} id="aboutMe">
+        <Title text={'Sobre Mim'}/>
           <div>
             <motion.div
             className={styles.description}

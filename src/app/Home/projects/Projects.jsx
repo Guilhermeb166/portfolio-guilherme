@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 // Seus ícones e dados de projeto...
 import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa'
+import Title from '@/components/title/Title'
 import { SiNextdotjs, SiTailwindcss, SiMongodb, SiPostgresql, SiPrisma } from 'react-icons/si'
 
 const projectsData = [
