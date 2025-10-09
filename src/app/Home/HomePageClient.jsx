@@ -7,6 +7,7 @@ import AboutMe from './aboutMe/AboutMe';
 import Introduction from './Introduction/Introduction';
 import Projects from './projects/Projects';
 import Skills from './skills/Skills';
+import Contact from './contact/Contact';
 export default function HomePageClient() {
 
   const { setActiveSection } = useActiveSection();
@@ -50,6 +51,7 @@ export default function HomePageClient() {
             <Projects />
           </section>
           <Skills />
+          <Contact/>
       </main>
   );
 }
