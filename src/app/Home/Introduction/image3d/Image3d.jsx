@@ -3,13 +3,43 @@ import styles from './Image3d.module.css'
 
 import * as THREE from 'three'
 import React, { Suspense, useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { Environment, useGLTF, ContactShadows } from '@react-three/drei'
 import { useSpring } from '@react-spring/core'
 import { a as three } from '@react-spring/three'
 import { a as web } from '@react-spring/web'
 import { TextureLoader } from 'three'
-import { useLoader } from '@react-three/fiber'
+
+function useResponsiveValue(valuesByBreakpoint) {
+  const [value, setValue] = useState(valuesByBreakpoint.default)
+
+  useEffect(() => {
+    function getResponsiveValue() {
+      const width = window.innerWidth
+      const breakpoints = Object.keys(valuesByBreakpoint)
+        .map(Number)
+        .filter((n) => !isNaN(n))
+        .sort((a, b) => a - b)
+
+      let selected = valuesByBreakpoint.default || null
+      for (const bp of breakpoints) {
+        if (width <= bp) {
+          selected = valuesByBreakpoint[bp]
+          break
+        }
+      }
+      return selected || valuesByBreakpoint.default
+    }
+
+    // Atualiza no mount e ao redimensionar
+    const handleResize = () => setValue(getResponsiveValue())
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [valuesByBreakpoint])
+
+  return value
+}
 
 function Model({ open, hinge, ...props }) {
 
@@ -53,6 +83,11 @@ function Model({ open, hinge, ...props }) {
 export default function Image3d() {
   const [open, setOpen] = useState(false)
   const props = useSpring({ open: Number(open) })
+  
+  const notePosition =  useResponsiveValue({
+    768:[0, 4, 0],
+    default:[-2, 0, 0]
+  })
 
   // assim que o componente montar, dispara a abertura
   useEffect(()=>{
@@ -67,11 +102,11 @@ export default function Image3d() {
     <web.main style={{ background: props.open.to([0, 1], ['transparent']), height:'100%' }}>
       <web.h1 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 100}px,0)`) }}>click</web.h1>
       <Canvas dpr={[1, 8]} camera={{ position: [-0, -0, -45], fov: 30 }}  gl={{ alpha: true }} style={{ background: 'transparent' }}>
-        <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['transparent'])}  onCreated={({ gl }) => {
-    gl.setClearColor(0x000000, 0)
-  }}/>
+      <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['transparent'])}  onCreated={({ gl }) => {
+        gl.setClearColor(0x000000, 0)
+      }}/>
         <Suspense fallback={null}>
-          <group rotation={[0, Math.PI * 0.95, 0]} scale={1.4} position={[-2, 0, 0]} onClick={(e) => (e.stopPropagation(), setOpen(!open))} >
+          <group rotation={[0, Math.PI * 0.95, 0]} scale={1.4} position={notePosition} onClick={(e) => (e.stopPropagation(), setOpen(!open))} >
             <Model open={open} hinge={props.open.to([0, 1], [1.575, -0.425])} />
           </group>
           <Environment preset="city" />

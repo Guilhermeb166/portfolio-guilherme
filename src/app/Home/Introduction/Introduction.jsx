@@ -2,7 +2,10 @@
 import styles from './Introduction.module.css'
 import { motion } from 'framer-motion'
 import Image3d from './image3d/Image3d';
+import useIsMobile from '@/components/useIsMobile/useIsMobile';
+
 export default function Introduction() {
+  const isMobile = useIsMobile() // breakpoint padrão: 768px
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -71,6 +74,9 @@ export default function Introduction() {
           </svg>
         </a>
       </motion.div>
+      {!isMobile && (
+
+      
        <motion.div 
         className={styles.discoverMore}
         variants={fadeUp}
@@ -86,7 +92,7 @@ export default function Introduction() {
         Descubra Mais
         <span className={styles.arrow}>⌄</span>
       </motion.div>
-      
+      )}
     </div>
     <div className={styles.div3d}><Image3d/></div>
     </section>

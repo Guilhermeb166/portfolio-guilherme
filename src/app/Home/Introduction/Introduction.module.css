@@ -195,13 +195,14 @@
 @media screen and (max-width:768px) {
   .introduction {
     flex-direction: column;
-    height: auto;
-    padding-top: 80px;
+    height: 1050px;
+    justify-content: center;
   }
 
   .introText {
     width: 100%;
     padding-inline: 15px;
+    justify-content: end;
   }
 
   .mainTitle {
@@ -220,5 +221,9 @@
 
   .titlePart2 {
     font-size: 1.4rem;
+  }
+  .div3d{
+    height: 600px;
+    width: 100%;
   }
 }
