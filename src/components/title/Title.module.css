@@ -8,7 +8,7 @@
 }
 
 .title {
-    text-align: center;
+  text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
   width: 100%;
@@ -42,4 +42,15 @@
   height: 4px; 
   background-color: var(--color-cyan); 
   border-radius: 2px;
+}
+
+@media screen and (max-width:768px) {
+  .title::before{
+    font-size: 4.5rem;
+    width: 100%;
+    top: 15%;
+  }
+  .title::after{
+    width: 20%;
+  }
 }
