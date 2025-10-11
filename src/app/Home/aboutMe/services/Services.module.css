@@ -35,10 +35,25 @@
 
 @media screen and (max-width:768px) {
   .servicesWrapper {
-    gap: 1rem;
+    gap: 1.5rem;
     width: 100%;
   }
   .serviceItem{
-    width: 240px;
+    width: 300px;
+  }
+}
+@media screen and (max-width:670px){
+  .serviceItem{
+    width: 270px;
+  }
+}
+@media screen and (max-width:605px){
+  .serviceItem{
+    width: 250px;
+  }
+}
+@media screen and (max-width:565px){
+  .serviceItem{
+    width: 400px;
   }
 }

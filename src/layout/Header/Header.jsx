@@ -1,13 +1,15 @@
 'use client'
 import styles from './Header.module.css'
-import Image from "next/image"
+
 import Links from './Links/Links'
+import Sidebar from './Sidebar/Sidebar'
+import useIsMobile from '@/components/useIsMobile/useIsMobile'
 
 export default function Header() {
+  const isMobile = useIsMobile() // breakpoint padrão: 768px
   return (
     <header className={styles.header}>
-        
-        <Links/>
+      {!isMobile ?<Links/> :<Sidebar/> }
     </header>
   )
 }
