@@ -1,0 +1,47 @@
+.contactSession {
+  padding: 80px 20px;
+  background-color: #0c0c0c;
+  color: #e0e0e0;
+}
+.contactWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 50px;
+  text-align: left;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactText {
+  flex: 1;
+  max-width: 500px;
+}
+
+.contactText p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #a0a0a0;
+}
+
+.emailButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+}
+
+.emailButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
