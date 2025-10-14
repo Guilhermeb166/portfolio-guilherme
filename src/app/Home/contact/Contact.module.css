@@ -1,8 +1,9 @@
 .contactSession {
   padding: 80px 20px;
-  background-color: #0c0c0c;
-  color: #e0e0e0;
+  height: 100vh;
+  color: #eeeeee;
 }
+
 .contactWrapper {
   display: flex;
   justify-content: center;
@@ -28,6 +29,7 @@
 
 .emailButton {
   display: inline-flex;
+
   align-items: center;
   gap: 10px;
   padding: 12px 24px;

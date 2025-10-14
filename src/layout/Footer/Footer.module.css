@@ -1,0 +1,109 @@
+.footer {
+  background: linear-gradient(135deg, #0e0d0d 0%, #0d0d0e 100%);
+  color: #e0e0e0;
+  padding: 4rem 2rem 2rem;
+  margin-top: 6rem;
+  position: relative;
+
+  &::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d9ff, transparent);
+}
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.footerBrand {
+  &>h3{
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #00d9ff, #7b2ff7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;    
+  }
+
+  &>p{  
+    color: #a0a0a0;
+    font-size: 0.95rem;
+  }
+}
+.footerLinks {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  &>h4 {
+    color: #00d9ff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    }
+}
+
+.scrollTopBtn {
+    background: linear-gradient(135deg, #00d9ff, #7b2ff7);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5);
+    }
+}
+
+.scrollTopBtn svg {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.footerDivider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.3), transparent);
+  margin: 2rem 0;
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.madeWith {
+  color: #808080;
+}
+

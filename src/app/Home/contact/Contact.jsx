@@ -21,7 +21,7 @@ export default function Contact() {
           </p>
           <a href="mailto:guilhermebarroso166@gmail.com" className={styles.emailButton}>
             <FiSend />
-            guilhermebarroso166@gmail.com
+            Fale Comigo!
           </a>
         </div>
         <Form/>

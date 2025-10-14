@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/layout/Header/Header";
 import SmoothScrollProvider from "@/components/utils/SmoothScroll";
 import { ActiveSectionContextProvider } from "@/components/utils/Context/ActiveSectionContext";
+import Footer from "@/layout/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           <ActiveSectionContextProvider>
             <Header />
             {children}
+            <Footer/>
           </ActiveSectionContextProvider>
         </SmoothScrollProvider>
       </body>
