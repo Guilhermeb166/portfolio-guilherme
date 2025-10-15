@@ -1,20 +1,22 @@
 'use client'
 import { useState, useEffect } from "react"
 
+export default function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false)
 
-export default function useIsMobile(breakpoint  =  768) {
-    const [isMobile, setIsMobile]  =  useState(false)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
 
-    useEffect(() =>{
-        const checkScreenSize = () => {
-            setIsMobile(window.innerWidth <= breakpoint)
-        }
+    const mediaQuery = window.matchMedia(`(max-width: ${breakpoint}px)`)
 
-        checkScreenSize() //checa ao montar
+    const handleChange = (e) => setIsMobile(e.matches)
 
-        window.addEventListener('resize', checkScreenSize)
-        return () =>  window.removeEventListener('resize', checkScreenSize)
-    }, [breakpoint])
+    // Checa imediatamente e adiciona listener
+    handleChange(mediaQuery)
+    mediaQuery.addEventListener('change', handleChange)
 
-    return isMobile
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [breakpoint])
+
+  return isMobile
 }
