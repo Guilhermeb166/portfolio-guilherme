@@ -16,7 +16,9 @@
   --color-verde: #0F9080;
 }
 
-body{
+html, body{
   background-color: #030303;
   height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
 }
