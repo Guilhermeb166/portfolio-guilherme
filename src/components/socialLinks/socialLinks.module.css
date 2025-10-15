@@ -26,3 +26,9 @@
   color: #ffffff;
   transform: translateY(-2px);
 }
+
+@media screen and (max-width:460px) {
+  .socialLinks{
+    flex-wrap: wrap;
+  }
+}

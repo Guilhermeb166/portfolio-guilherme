@@ -1,20 +1,24 @@
 'use client'
 import SocialLinks from '@/components/socialLinks/SocialLinks'
 import styles from './Footer.module.css'
-import { FiArrowUp } from 'react-icons/fi'
+import useIsMobile from '@/components/useIsMobile/useIsMobile'
 
 export default function Footer() {
+    const isMobile = useIsMobile();
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
+
     return (
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.footerTop}>
-            <div className={styles.footerBrand}>
-              <h3>Guilherme Barroso</h3>
-              <p>Desenvolvedor Full-Stack</p>
-            </div>
+            {!isMobile && (
+              <div className={styles.footerBrand}>
+                <h3>Guilherme Barroso</h3>
+                <p>Desenvolvedor Full-Stack</p>
+              </div>
+            )}
 
             <div className={styles.footerLinks}>
               <div className={styles.linkColumn}>
@@ -30,14 +34,6 @@ export default function Footer() {
                 <SocialLinks/>
               </div>
             </div>
-
-            {/*<button 
-              className={styles.scrollTopBtn} 
-              onClick={scrollToTop}
-              aria-label="Voltar ao topo"
-            >
-              <FiArrowUp />
-            </button>*/}
           </div>
 
           <div className={styles.footerDivider}></div>

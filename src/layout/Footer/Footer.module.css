@@ -83,29 +83,6 @@
   font-size: 1.1rem;
 }
 
-.scrollTopBtn {
-    background: linear-gradient(135deg, #00d9ff, #7b2ff7);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
-
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5);
-    }
-}
-
-.scrollTopBtn svg {
-  color: white;
-  font-size: 1.5rem;
-}
 
 .footerDivider {
   height: 1px;
@@ -127,3 +104,12 @@
   color: #808080;
 }
 
+@media screen and (max-width:768px) {
+  .footerTop {
+    justify-content: space-around;
+  }
+  .footerLinks{
+    width: 100%;
+    justify-content: space-around;
+  }
+}
