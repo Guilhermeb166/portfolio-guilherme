@@ -31,13 +31,13 @@ export default function Footer() {
               </div>
             </div>
 
-            <button 
+            {/*<button 
               className={styles.scrollTopBtn} 
               onClick={scrollToTop}
               aria-label="Voltar ao topo"
             >
               <FiArrowUp />
-            </button>
+            </button>*/}
           </div>
 
           <div className={styles.footerDivider}></div>

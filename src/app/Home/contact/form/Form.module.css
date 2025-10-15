@@ -56,7 +56,9 @@
   gap: 10px;
   width: 100%;
   padding: 12px;
-  background: linear-gradient(90deg, #10d8dffd, var(--color-verde)  );
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-verde));
+  background-size: 200% 100%;
+  background-position: 0% 0%;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -64,11 +66,25 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  animation: gradientShift 3s ease-in-out infinite;
 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 5px #10d8dffd;
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--color-verde), 0 0 40px var(--color-cyan);
+    animation-play-state: paused;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 .submitButton:disabled {

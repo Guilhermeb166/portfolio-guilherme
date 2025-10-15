@@ -17,13 +17,14 @@
 }
 
 .footerContent {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .footerTop {
-  display: grid;
-  grid-template-columns: 1fr 2fr auto;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   gap: 3rem;
   margin-bottom: 3rem;
   align-items: start;
@@ -61,6 +62,25 @@
     margin-bottom: 0.5rem;
     font-weight: 600;
     }
+}
+.linkColumn a {
+  color: #c0c0c0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    color: #00d9ff;
+    transform: translateX(5px);
+  }
+}
+
+
+.linkColumn a svg {
+  font-size: 1.1rem;
 }
 
 .scrollTopBtn {
