@@ -85,6 +85,7 @@ export default function Image3d() {
   const props = useSpring({ open: Number(open) })
 
   const breakpoints = useMemo(() => ({
+    1024:[0, 3, 0],
     768: [0, 4, 0],
     default: [-2, 0, 0]
   }), [])

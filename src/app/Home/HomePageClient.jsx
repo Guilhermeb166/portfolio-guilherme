@@ -1,5 +1,5 @@
 'use client';
-import {  useEffect } from 'react';
+import {  useEffect, useState } from 'react';
 import { useActiveSection } from '@/components/utils/Context/ActiveSectionContext';
 import styles from '../page.module.css'
 import Title from "@/components/title/Title";
@@ -8,8 +8,10 @@ import Introduction from './Introduction/Introduction';
 import Projects from './projects/Projects';
 import Skills from './skills/Skills';
 import Contact from './contact/Contact';
-export default function HomePageClient() {
+import Loading from '@/components/Loading/Loading';
 
+export default function HomePageClient() {
+  const [isLoaded, setIsLoaded] = useState(false)
   const { setActiveSection } = useActiveSection();
 
   // Este useEffect observa as seções e atualiza o estado global
@@ -41,17 +43,35 @@ export default function HomePageClient() {
     };
   }, [setActiveSection]);
 
+  useEffect(() => {
+      const handleLoad = () => {
+        setTimeout(() => setIsLoaded(true), 500) // pequeno delay pra suavizar
+      }
+      if (document.readyState === 'complete') {
+        handleLoad()
+      } else {
+        window.addEventListener('load', handleLoad)
+        return () => window.removeEventListener('load', handleLoad)
+      }
+  }, [])
+
   // O JSX que antes estava na page.js agora fica aqui
   return ( 
-      <main className={styles.Home} >  
-          <Introduction />     
-          <AboutMe />
-          <section id="projects" className={styles.sectionWrapper}>
-            <Title text='Projects' />
-            <Projects />
-          </section>
-          <Skills />
-          <Contact/>
-      </main>
+      <>
+          {!isLoaded && <Loading/>}
+
+          {isLoaded && (
+            <main className={styles.Home}>
+              <Introduction />
+              <AboutMe />
+              <section id="projects" className={styles.sectionWrapper}>
+                <Title text='Projects' />
+                <Projects />
+              </section>
+              <Skills />
+              <Contact />
+            </main>
+          )}
+      </>
   );
 }
