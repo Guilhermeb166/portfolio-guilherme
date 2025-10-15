@@ -1,0 +1,158 @@
+.projectsSection {
+  position: relative;
+  padding: 2rem 1rem;
+  height: auto; /* Remove a altura fixa no mobile */
+}
+
+/* Estilos de fundo (mantidos) */
+.projectsSection::before,
+.projectsSection::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: 0;
+}
+
+.projectsSection::before {
+  width: 300px;
+  height:300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  top: 380px;
+  left: 50px;
+}
+
+.projectsSection::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #0d0d1d, transparent 100%);
+  bottom: 100px;
+  right: 500px;
+}
+
+/* Layout Principal (Mobile) */
+.projectsLayout {
+  display: block; /* Volta para o fluxo normal de bloco */
+}
+
+/* Lista de Projetos */
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Menor espaçamento entre os cards no mobile */
+}
+
+/* Card do Projeto */
+.projectCard {
+  background-color: var(--color-azulEscuroClaro);
+  display: block; /* Permite que os elementos internos se empilhem */
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid #5a5a5a;
+  z-index: 1;
+  opacity: 1; /* Sempre ativo no mobile */
+  height: auto; /* Altura automática para acomodar o conteúdo */
+  margin-bottom: 2rem; /* Espaçamento entre os cards */
+}
+
+/* Wrapper da Imagem */
+.projectImageWrapper {
+  width: 100%;
+  height: auto; /* Altura automática */
+  z-index: 2;
+  aspect-ratio: 16 / 10; 
+  border: 10px solid #070707;
+  border-radius: 20px 20px 0 0; /* Arredonda apenas o topo */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding:1rem 2rem;
+  border-bottom: none; /* Remove a borda inferior para juntar com os detalhes */
+}
+
+.imageGlow {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  inset: 0; 
+  border-radius: 16px;
+  pointer-events: none; 
+  z-index: 1; 
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 5%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255) 50%, rgba(255, 255, 255, 0.8) 65%, rgba(0, 0, 0, 0) 95%);;
+}
+
+.projectCardTitle {
+  z-index: 3;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Detalhes do Projeto (Mobile) - Estilo para empilhar */
+.mobileDetailContent {
+  padding: 1rem;
+  background-color: var(--color-azulEscuroClaro);
+  border-radius: 0 0 20px 20px; /* Arredonda apenas a parte de baixo */
+  border-top: 1px solid #5a5a5a; /* Separador */
+  margin-top: 0; /* Garante que não haja espaço entre a imagem e os detalhes */
+}
+
+.projectTitle {
+  font-size: 1.8rem; /* Um pouco menor no mobile */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-cyan);
+}
+
+.projectDescription {
+  font-size: 1rem; /* Um pouco menor no mobile */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.projectTechnologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Menor espaçamento no mobile */
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Menor espaçamento no mobile */
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.8rem; /* Menor padding no mobile */
+  border-radius: 20px;
+  font-size: 0.8rem; /* Menor fonte no mobile */
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.techItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.techItem svg {
+  font-size: 1rem; /* Menor ícone no mobile */
+}
+
+/* Esconder a coluna fixa no mobile (não existe neste componente, mas por segurança) */
+.stickyColumn {
+    display: none;
+}

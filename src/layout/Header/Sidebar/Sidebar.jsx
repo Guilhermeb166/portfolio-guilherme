@@ -27,10 +27,10 @@ export default function Sidebar() {
             </button>
                 
                 <motion.aside
-                className={`${styles.sidebar} ${open ? styles.open : ''}`}
-                initial={{x: '-100%'}}
-                animate={{x: open ? 0 : '-100%'}}
-                transition={{type: 'spring', stiffness: 70}}
+                    className={`${styles.sidebar} ${open ? styles.open : ''}`}
+                    initial={{x: '-100%'}}
+                    animate={{x: open ? 0 : '-100%'}}
+                    transition={{duration: 0.2}}
                 >
                     <ul className={styles.links}>
                         {links.map(link => {
