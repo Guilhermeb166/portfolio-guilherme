@@ -1,7 +1,7 @@
 'use client'
 import SocialLinks from '@/components/socialLinks/SocialLinks'
 import styles from './Footer.module.css'
-import useIsMobile from '@/components/useIsMobile/useIsMobile'
+import useIsMobile from '@/components/Responsive/useIsMobile'
 
 export default function Footer() {
     const isMobile = useIsMobile();

@@ -199,3 +199,14 @@
     width: 100%;
   }
 }
+@media screen and (max-width:450px){
+  .introduction{
+    height: 1020px;
+  }
+  .titlePart1{
+    font-size: 2.2rem;
+  }
+  .titlePart2 {
+    font-size: 1.2rem;
+  }
+}

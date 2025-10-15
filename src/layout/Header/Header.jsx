@@ -3,7 +3,7 @@ import styles from './Header.module.css'
 
 import Links from './Links/Links'
 import Sidebar from './Sidebar/Sidebar'
-import useIsMobile from '@/components/useIsMobile/useIsMobile'
+import useIsMobile from '@/components/Responsive/useIsMobile'
 
 export default function Header() {
   const isMobile = useIsMobile() // breakpoint padrão: 768px

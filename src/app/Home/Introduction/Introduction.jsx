@@ -2,7 +2,7 @@
 import styles from './Introduction.module.css'
 import { motion } from 'framer-motion'
 import Image3d from './image3d/Image3d';
-import useIsMobile from '@/components/useIsMobile/useIsMobile';
+import useIsMobile from '@/components/Responsive/useIsMobile';
 import SocialLinks from '@/components/socialLinks/SocialLinks';
 
 export default function Introduction() {
