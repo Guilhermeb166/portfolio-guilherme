@@ -1,5 +1,5 @@
 'use client';
-import {  useEffect, useState } from 'react';
+import {  useEffect, useState, useRef } from 'react';
 import { useActiveSection } from '@/components/utils/Context/ActiveSectionContext';
 import styles from '../page.module.css'
 import Title from "@/components/title/Title";
@@ -12,40 +12,60 @@ import Loading from '@/components/Loading/Loading';
 
 export default function HomePageClient() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const { setActiveSection } = useActiveSection();
+  const { activeSection, setActiveSection } = useActiveSection();
+  const observerRef = useRef(null);
 
-  // Este useEffect observa as seções e atualiza o estado global
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          console.log(`Seção: ${entry.target.id}, Está visível? ${entry.isIntersecting}, Proporção visível: ${entry.intersectionRatio.toFixed(2)}`);
-          if (entry.isIntersecting) {
-            // Usa a função do contexto para atualizar o estado
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { 
-        threshold: 0.2 // A seção precisa estar 50% visível
-      } 
-    );
+    if (!isLoaded) return;
+    const timeoutId = setTimeout(() => {
 
-    sections.forEach((section) => observer.observe(section));
+        const sections = document.querySelectorAll('section[id]');
+        
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
 
-    // Função de limpeza para desconectar o observer
+              console.log(`Seção: ${entry.target.id}, Está visível? ${entry.isIntersecting}, Proporção visível: ${entry.intersectionRatio.toFixed(2)}`);
+              if (entry.isIntersecting) {
+
+                setActiveSection(entry.target.id);
+              }
+            });
+          },
+          { 
+            
+            threshold: 0.2 
+          } 
+        );
+
+
+        observerRef.current = observer;
+
+        sections.forEach((section) => observer.observe(section));
+
+  
+        return () => {
+            sections.forEach((section) => {
+                observer.unobserve(section)
+            });
+            clearTimeout(timeoutId);
+        };
+    }, 500); 
+
     return () => {
-        sections.forEach((section) => {
-            observer.unobserve(section)
-        });
+        
+        clearTimeout(timeoutId);
+
+        if (observerRef.current) {
+            observerRef.current.disconnect();
+        }
     };
-  }, [setActiveSection]);
+  }, [isLoaded, setActiveSection]); 
+
 
   useEffect(() => {
       const handleLoad = () => {
-        setTimeout(() => setIsLoaded(true), 500) // pequeno delay pra suavizar
+        setTimeout(() => setIsLoaded(true), 500) 
       }
       if (document.readyState === 'complete') {
         handleLoad()
@@ -55,7 +75,7 @@ export default function HomePageClient() {
       }
   }, [])
 
-  // O JSX que antes estava na page.js agora fica aqui
+
   return ( 
       <>
           {!isLoaded && <Loading/>}

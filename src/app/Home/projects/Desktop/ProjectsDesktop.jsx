@@ -73,7 +73,7 @@ export default function ProjectsDesktop() {
   }, [])
 
   return (
-    <section className={styles.projectsSection}>
+    <section className={styles.projectsSection} id='projects'>
       <div className={styles.projectsLayout}>
         {/* Coluna da Esquerda: Lista de todos os projetos */}
         <div className={styles.projectsList}>
