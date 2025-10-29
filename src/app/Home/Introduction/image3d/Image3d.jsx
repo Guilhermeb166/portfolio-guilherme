@@ -112,7 +112,7 @@ export default function Image3d() {
           <group rotation={[0, Math.PI * 0.95, 0]} scale={1.4} position={notePosition} onClick={(e) => (e.stopPropagation(), setOpen(!open))} >
             <Model open={open} hinge={props.open.to([0, 1], [1.575, -0.425])} />
           </group>
-          <Environment preset="city" />
+          <Environment files="/hdri/potsdamer_platz_1k.hdr" />
         </Suspense>
         <ContactShadows position={[0, -4.5, 0]} opacity={0.4} scale={20} blur={1.75} far={4.5} />
       </Canvas>
