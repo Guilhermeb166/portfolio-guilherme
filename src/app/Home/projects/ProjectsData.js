@@ -1,18 +1,20 @@
 import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa'
 import { SiNextdotjs, SiTailwindcss, SiMongodb, SiPostgresql, SiPrisma } from 'react-icons/si'
+import { IoLogoFirebase } from "react-icons/io5";
 
 export const projectsData = [
   {
     id: 'project-1',
-    title: 'Diteck Technology',
-    description: 'A full-stack agency platform with AI-powered features, secure job application flow, and role-based dashboards for Admin and Users.',
+    title: 'Meu Controle Financeiro',
+    description: 'Este é um sistema de Controle Financeiro desenvolvido em Next.js e Firebase, que permite gerenciar receitas e despesas com suporte a cartões de crédito. O projeto inclui funcionalidades avançadas como dashboards analíticos, planejamento de crédito e importação automática de extratos via OCR.',
     technologies: [
       { icon: <SiNextdotjs />, name: 'NextJS' },
       { icon: <SiTailwindcss />, name: 'Tailwind CSS' },
       { icon: <FaNodeJs />, name: 'NodeJS' },
-      { icon: <SiMongodb />, name: 'MongoDB' },
+      { icon: <IoLogoFirebase />, name: 'Firebase' },
     ],
     image: '/img/projects/lrfut.png',
+    liveUrl: 'https://meu-controle-financeiro-web.vercel.app/',
   },
   {
     id: 'project-2',
