@@ -22,3 +22,24 @@ html, body{
   overflow-x: hidden;
   width: 100%;
 }
+
+.light-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.light-lines svg {
+  animation: moveLines 20s linear infinite;
+}
+
+@keyframes moveLines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200px);
+  }
+}

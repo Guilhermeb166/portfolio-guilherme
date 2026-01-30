@@ -39,7 +39,7 @@ export default function Footer() {
           <div className={styles.footerDivider}></div>
 
           <div className={styles.footerBottom}>
-            <p>© 2025 Guilherme. Todos os direitos reservados.</p>
+            <p>© 2026 Guilherme. Todos os direitos reservados.</p>
             <p className={styles.madeWith}>
               Desenvolvido com Next.js
             </p>

@@ -85,8 +85,8 @@ export default function Image3d() {
   const props = useSpring({ open: Number(open) })
 
   const breakpoints = useMemo(() => ({
+    1200: [0, 4, 0],
     1024:[0, 3, 0],
-    768: [0, 4, 0],
     default: [-2, 0, 0]
   }), [])
 
@@ -103,7 +103,6 @@ export default function Image3d() {
 
   return (
     <web.main style={{ background: props.open.to([0, 1], ['transparent']), height: '100%' }}>
-      <web.h1 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 100}px,0)`) }}>click</web.h1>
       <Canvas dpr={[1, 8]} camera={{ position: [-0, -0, -45], fov: 30 }} gl={{ alpha: true }} style={{ background: 'transparent' }}>
         <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['transparent'])} onCreated={({ gl }) => {
           gl.setClearColor(0x000000, 0)

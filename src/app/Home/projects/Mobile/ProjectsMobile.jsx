@@ -1,6 +1,9 @@
 'use client'
-import styles from './ProjectsMobile.module.css' // Novo arquivo de estilo
+import styles from './ProjectsMobile.module.css'
+import { useState, useEffect, useRef } from 'react'
 import { projectsData } from '../ProjectsData'
+import { FaSpinner } from 'react-icons/fa'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 // Componente de detalhes (agora interno)
 const ProjectDetail = ({ project }) => {
@@ -25,7 +28,68 @@ const ProjectDetail = ({ project }) => {
   return <div className={styles.mobileDetailContent}>{content}</div>
 }
 
+// Componente do Iframe (copiado do ProjectsDesktop)
+const WebsiteIframe = ({ url, title, fallbackImage }) => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [hasError, setHasError] = useState(false)
+    const iframeRef = useRef(null)
+
+    useEffect(() => {
+        setIsLoading(true)
+        setHasError(false)
+    }, [url])
+
+    const handleIframeLoad = () => {
+        setIsLoading(false)
+    }
+
+    const handleIframeError = () => {
+        setIsLoading(false)
+        setHasError(true)
+    }
+
+    return (
+        <div className={styles.iframeContainer}>
+            {isLoading && (
+                <div className={styles.iframeLoading}>
+                <FaSpinner className={styles.spinner} />
+                <span>Carregando preview...</span>
+                </div>
+            )}
+        
+            {hasError ? (
+                <div className={styles.iframeError}>
+                <img 
+                    src={fallbackImage} 
+                    alt={title}
+                    className={styles.fallbackImage}
+                />
+                <p>Preview não disponível</p>
+                </div>
+            ) : (
+                <iframe
+                ref={iframeRef}
+                src={url}
+                title={`Preview do site: ${title}`}
+                className={styles.websiteIframe}
+                onLoad={handleIframeLoad}
+                onError={handleIframeError}
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                />
+            )}
+        </div>
+    )
+}
+
 export default function ProjectsMobile() {
+  const handleCardClick = (url) => {
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   return (
     <section className={styles.projectsSection}>
       <div className={styles.projectsLayout}>
@@ -34,13 +98,33 @@ export default function ProjectsMobile() {
           {projectsData.map((project) => (
             <div
               key={project.id}
-              // No mobile, todos os cards estão "ativos" (opacidade 1) e empilhados
               className={`${styles.projectCard} ${styles.active}`}
+              onClick={() => handleCardClick(project.liveUrl)}
             >
               <div className={styles.projectImageWrapper}>
                 <div className={styles.imageGlow}></div>
-                <h4 className={styles.projectCardTitle}>{project.title}</h4>
-                <img src={project.image} alt={project.title} className={styles.projectImage} />
+                <div className={styles.iframeWrapper}>
+                    {/* Iframe do site no mobile também */}
+                    {project.liveUrl ? (
+                    <WebsiteIframe 
+                        url={project.liveUrl}
+                        title={project.title}
+                        fallbackImage={project.image}
+                    />
+                    ) : (
+                    <>
+                        <h4 className={styles.projectCardTitle}>{project.title}</h4>
+                        <img src={project.image} alt={project.title} className={styles.projectImage} />
+                    </>
+                    )}
+
+                    {/* Overlay para indicar que é clicável no mobile */}
+                    {project.liveUrl && (
+                    <div className={styles.clickOverlay}>
+                        <span>Visitar site <FaArrowRightLong className={styles.arrowIcon}/></span>
+                    </div>
+                    )}
+                 </div>
               </div>
               
               {/* Detalhe é renderizado dentro do card, empilhando projeto e descrição */}
@@ -48,7 +132,6 @@ export default function ProjectsMobile() {
             </div>
           ))}
         </div>
-        {/* A coluna sticky (stickyColumn) é escondida via CSS no mobile */}
       </div>
     </section>
   )
