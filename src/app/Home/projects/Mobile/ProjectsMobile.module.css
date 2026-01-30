@@ -1,10 +1,9 @@
 .projectsSection {
   position: relative;
   padding: 2rem 1rem;
-  height: auto; /* Remove a altura fixa no mobile */
+  height: auto;
 }
 
-/* Estilos de fundo (mantidos) */
 .projectsSection::before,
 .projectsSection::after {
   content: "";
@@ -31,50 +30,50 @@
   right: 500px;
 }
 
-/* Layout Principal (Mobile) */
+
 .projectsLayout {
-  display: block; /* Volta para o fluxo normal de bloco */
+  display: block;
 }
 
-/* Lista de Projetos */
+
 .projectsList {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem; /* Menor espaçamento entre os cards no mobile */
+  gap: 2rem; 
 }
 
-/* Card do Projeto */
+
 .projectCard {
   background-color: var(--color-azulEscuroClaro);
-  display: block; /* Permite que os elementos internos se empilhem */
+  display: block;
   width: 100%;
   max-width: 600px;
   position: relative;
   border-radius: 20px;
   border: 1px solid #5a5a5a;
   z-index: 1;
-  opacity: 1; /* Sempre ativo no mobile */
-  height: auto; /* Altura automática para acomodar o conteúdo */
-  margin-bottom: 2rem; /* Espaçamento entre os cards */
+  opacity: 1; 
+  height: auto; 
+  margin-bottom: 2rem; 
 }
 
-/* Wrapper da Imagem */
+
 .projectImageWrapper {
   width: 100%;
-  height: auto; /* Altura automática */
+  height: auto; 
   z-index: 2;
   aspect-ratio: 16 / 10; 
-  border: 10px solid #070707;
-  border-radius: 20px 20px 0 0; /* Arredonda apenas o topo */
+  border: 7px solid #070707;
+  border-radius: 20px 20px 0 0; 
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
-  padding:1rem 2rem;
-  border-bottom: none; /* Remove a borda inferior para juntar com os detalhes */
+  padding-bottom:1px;
+
 }
 
 .imageGlow {
@@ -103,7 +102,7 @@
   border-radius: 10px;
 }
 
-/* Container do Iframe */
+
 .iframeContainer {
   width: 100%;
   height: 100%;
@@ -121,7 +120,7 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
+
   background: white;
 }
 
@@ -181,7 +180,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px; /* igual ao iframe */
   opacity: 1;
   backdrop-filter: blur(2px);
   z-index: 3;
@@ -189,7 +187,7 @@
 
 .clickOverlay span {
   color: var(--color-cyan);
-  font-size: 1.1rem; /* Um pouco menor para mobile */
+  font-size: 1.1rem;
   cursor: pointer;
   display: flex;
   align-items: center;

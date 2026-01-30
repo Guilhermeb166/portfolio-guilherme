@@ -1,5 +1,5 @@
 'use client'
-import SocialLinks from '@/components/socialLinks/SocialLinks'
+import SocialLinks from '@/layout/Footer/socialLinks/SocialLinks'
 import styles from './Footer.module.css'
 import useIsMobile from '@/components/Responsive/useIsMobile'
 
@@ -23,15 +23,18 @@ export default function Footer() {
             <div className={styles.footerLinks}>
               <div className={styles.linkColumn}>
                 <h4>Navegação</h4>
-                <a href="#home">Início</a>
-                <a href="#aboutMe">Sobre</a>
-                <a href="#projects">Projetos</a>
-                <a href="#contact">Contato</a>
+                <a href="#home" className={styles.linksNav}>Início</a>
+                <a href="#aboutMe" className={styles.linksNav}>Sobre</a>
+                <a href="#projects" className={styles.linksNav}>Projetos</a>
+                <a href="#contact" className={styles.linksNav}>Contato</a>
               </div>
 
               <div className={styles.linkColumn}>
                 <h4>Contato</h4>
-                <SocialLinks/>
+                <a href="mailto:guilhermebarroso166@gmail.com" className={styles.linksNav}>Gmail</a>
+                <a href="https://www.linkedin.com/in/guilherme-barroso-98773b269/" className={styles.linksNav}>Linkedin</a>
+                <a href="https://github.com/Guilhermeb166" className={styles.linksNav}>Github</a>
+                <a href="https://nextsolve.vercel.app/" className={styles.linksNav}>NextSolve</a>
               </div>
             </div>
           </div>
