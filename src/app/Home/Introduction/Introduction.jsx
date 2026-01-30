@@ -3,7 +3,7 @@ import styles from './Introduction.module.css'
 import { motion } from 'framer-motion'
 import Image3d from './image3d/Image3d';
 import useIsTablet from '@/components/Responsive/useIsTablet';
-import SocialLinks from '@/layout/Footer/socialLinks/SocialLinks';
+import SocialLinks from '@/layout/Footer/SocialLinks/SocialLinks';
 import {LightLines} from '@/components/ui/LightLines'
 
 export default function Introduction() {

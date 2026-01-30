@@ -1,5 +1,5 @@
 'use client'
-import SocialLinks from '@/layout/Footer/socialLinks/SocialLinks'
+
 import styles from './Footer.module.css'
 import useIsMobile from '@/components/Responsive/useIsMobile'
 
